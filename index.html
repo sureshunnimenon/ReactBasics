@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="app"></div>
+    <!-- create react component -->
+    <script type="text/babel">
+        class App extends React.Component{
+            // create a state
+            state = {
+                name: "Suresh",
+                age: 30 
+            }
+            handleClick = (e) => {
+                console.log(e.target);
+                console.log(this.state);
+                this.setState({
+                    name: "Suresh Naloor",
+                    age: 21
+                })
+            }
+
+            handleHover(e){
+                console.log(e)
+                
+            }
+
+            handleCopy(){
+                alert("Be original for once!")
+            }
+            // render the DOM
+            render(){
+                return (
+                    <div className = "app-content"> 
+                       <h1> Hi, Ninjas! </h1>
+                       <h5> A random number is generated below </h5>
+                       <h4> {Math.random()*10  } </h4>
+
+                       <h3> My name is:  {this.state.name } and I am {this.state.age } Years old. </h3> 
+                       <button onClick = {this.handleClick} > Click Me! </button> 
+                       <button onMouseOver = {this.handleHover} > Hover Me! </button>
+                       <p onCopy = {this.handleCopy}> What we think, we become </p>
+                    </div>
+                );
+            }
+        }
+
+    ReactDOM.render(<App />, document.querySelector('.app'));
+    </script>
+    
+</body>
+</html>
